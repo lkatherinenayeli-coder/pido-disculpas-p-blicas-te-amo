@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holis 🚗🔥</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #111;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    /* Pista de carreras */
+    .track {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      background: #222;
+      border-top: 4px solid #ffcc00;
+      border-bottom: 4px solid #ffcc00;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    /* Línea discontinua de la carretera */
+    .road-line {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: repeating-linear-gradient(90deg, #fff, #fff 20px, transparent 20px, transparent 40px);
+    }
+
+    /* Animación del autito */
+    .car-container {
+      position: absolute;
+      left: -350px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: drive 4s ease-in-out forwards;
+    }
+
+    .banner {
+      background: #e60012;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(230, 0, 18, 0.5);
+      border: 2px solid #ffcc00;
+    }
+
+    .car {
+      font-size: 50px;
+      transform: scaleX(-1); /* Orientar autito a la derecha */
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+    }
+
+    @keyframes drive {
+      0% {
+        left: -350px;
+      }
+      70% {
+        left: calc(50% - 100px);
+      }
+      85% {
+        left: calc(50% - 100px);
+      }
+      100% {
+        left: 110vw;
+      }
+    }
+
+    /* Tarjeta del mensaje final */
+    .card {
+      background: #1e1e1e;
+      border: 2px solid #e60012;
+      border-radius: 16px;
+      padding: 25px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(230, 0, 18, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h1 {
+      color: #ffcc00;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #ddd;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .heart {
+      color: #e60012;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pista por donde pasa el carro -->
+  <div class="track">
+    <div class="road-line"></div>
+    <div class="car-container">
+      <div class="banner">¡Te amo muchito! ❤️🏎️</div>
+      <div class="car">🏎️</div>
+    </div>
+  </div>
+
+  <!-- Tarjeta con la cartita/mensaje -->
+  <div class="card" id="messageCard">
+    <h1>¡Hola mi amor! 🏎️️🔥</h1>
+    <p>
+      Tal vez en esta ocasión no pude comprarte un Hot Wheels, pero quería sacarte una sonrisa y recordarte que **siempre te tengo muy presente** contra todo pronóstico siempre te amo y te tengo presente en todo momento.
+    </p>
+    <p>
+      ¡Eres super especial para mí y te amo un montón! ❤️
+    </p>
+    <div class="heart">🏁✨</div>
+  </div>
+
+  <script>
+    // Mostrar la carta justo después de que el autito termine de pasar
+    setTimeout(() => {
+      document.getElementById('messageCard').classList.add('show');
+    }, 3500);
+  </script>
+
+</body>
+</html>
